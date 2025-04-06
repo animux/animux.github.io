@@ -16,11 +16,11 @@ module.exports = {
     },
     variants: {
       extend: {
-        display: ['group-hover'],
+        display: ["group-hover"],
         transitionProperty: {
-          'height': 'height',
-        }
-      }
-    }
+          height: "height",
+        },
+      },
+    },
   },
 };

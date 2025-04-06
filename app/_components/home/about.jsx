@@ -3,34 +3,59 @@
 // import Particles from "@tsparticles/react";
 // import config from "./particlesjs-config";
 
+import { motion } from "framer-motion";
+
 const AboutUs = () => {
   return (
     <div
       className="bg-no-repeat bg-center bg-cover bg-fixed"
       style={{ backgroundImage: "url('/about-us.jpg')" }}
+      id="about"
     >
-      <div className="py-32 backdrop-filter backdrop-blur-md bg-opacity-30 bg-neutral-200 dark:bg-white-900 dark:backdrop-filter dark:backdrop-blur-md dark:bg-opacity-10 text-white">
-        <div className="container mx-auto">
-          <h1 className="text-6xl opacity-80 font-extrabold mb-5 ">About</h1>
-          <div className="flex flex-row text-xl text-pretty gap-5">
-            <p className="px-10 border-t-4 border-zinc-900 dark:border-white mt-3"></p>
-            <p>
-              As a dedicated Full Stack Web Developer with over seven years of
-              professional experience, I am committed to delivering
-              high-quality, innovative solutions for my clients. My expertise
-              spans both front-end and back-end development, ensuring seamless
-              integration and functionality. I pride myself on my ability to
-              communicate effectively, understand client needs, and translate
-              them into efficient, user-friendly applications. Constantly driven
-              by a passion for learning, I stay abreast of the latest industry
-              trends and technologies to provide cutting-edge services that meet
-              and exceed expectations. Whether working on a complex project or
-              offering consultative insights, my goal is to enhance client
-              success through technical excellence and unwavering
-              professionalism.
-            </p>
+      <div className="py-20 backdrop-filter backdrop-blur-lg bg-opacity-50 bg-white dark:bg-zinc-900 dark:backdrop-filter dark:backdrop-blur-md dark:bg-opacity-10 text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto md:px-0 px-5">
+            <div className="flex">
+              <h1 className="md:text-6xl text-5xl opacity-80 font-extrabold mb-5 dark:bg-zinc-900 bg-white dark:text-white text-zinc-900">
+                Code, <span className="bg-amber-950 text-white ">Coffee</span> &
+                Creativity
+              </h1>
+            </div>
+            <div className="flex flex-row text-xl text-pretty gap-5">
+              <p className="px-10 border-t-4 border-white md:block hidden"></p>
+              <p className="text-xl">
+                <span className="font-bold">
+                  Let’s make something awesome together.
+                </span>{" "}
+                Hi, I’m Aminul Islam (aka Animux), a{" "}
+                <span className="font-bold">Full Stack Web Developer</span> with{" "}
+                <span className="underline font-bold">7+ years</span> of
+                experience — but let’s be honest, I’m here to create cool stuff
+                that gets results. From front-end finesse to back-end wizardry,
+                I’ve got the skills to make everything run smooth and look even
+                smoother.{" "}
+                <span className="font-bold underline">
+                  Communication is my jam
+                </span>
+                , so I make sure I understand exactly what you need, then turn
+                it into an app that’s not just functional, but a joy to use. I’m
+                always keeping my skills sharp by staying ahead of the latest
+                tech trends —{" "}
+                <span className="font-bold underline">
+                  because who doesn’t love learning the newest tricks?
+                </span>{" "}
+                Whether it’s a big project or just some advice, my goal is
+                simple: to help you and your business shine with a mix of solid
+                tech and a bit of creative flair.
+              </p>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
