@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { LuGlobe } from "react-icons/lu";
+import Link from "next/link";
 
 export default function MasonryGrid({ projects }) {
   const [hoverId, setHoverId] = useState(null);
@@ -20,16 +20,16 @@ export default function MasonryGrid({ projects }) {
           viewport={{ once: true }}
           onHoverStart={() => setHoverId(project.id)}
           onHoverEnd={() => setHoverId(null)}
+          onClick={() => setHoverId(project.id)}
         >
           <div
             className="relative group overflow-hidden rounded-lg shadow-lg"
             style={{ height: project.height }}
           >
-            <Image
+            <img
               src={project.image}
               alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <motion.div
               className="absolute inset-0 bg-black/70 flex flex-col justify-end p-6"
@@ -51,10 +51,14 @@ export default function MasonryGrid({ projects }) {
                 ))}
               </div>
               <div className="flex gap-3">
-                <button className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors">
+                <Link
+                  className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors"
+                  href={project.link}
+                  target="_blank"
+                >
                   <LuGlobe className="w-4 h-4" />
                   Visit Site
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>

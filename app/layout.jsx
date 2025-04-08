@@ -13,14 +13,15 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export const metadata = {
+  metadataBase: new URL("https://animux.dev"),
   title: "Animux | Aminul Islam",
   description:
-    "I'm Aminul Islam (aka Animux), a Full Stack Web Developer with 7+ years of experience crafting sleek, high-performing websites and apps. From front-end design to back-end development, I blend tech expertise with creative flair to deliver results. Clear communication, modern tech, and user-focused solutions — that’s how I help businesses shine online.",
+    "I'm Aminul Islam (aka Animux), a Full Stack Web Developer based in Bangladesh with 7+ years of experience creating fast, modern, and responsive websites and web applications. I specialize in technologies like React, Next.js, Node.js, and MongoDB — delivering scalable digital solutions for startups, agencies, and businesses worldwide. Whether you're in Dhaka or abroad, I combine clean code, sleek design, and clear communication to bring your web project to life. Let’s build something amazing together.",
   favicon: "/favicon.ico",
   openGraph: {
     title: "Animux | Aminul Islam",
     description:
-      "I'm Aminul Islam (aka Animux), a Full Stack Web Developer with 7+ years of experience crafting sleek, high-performing websites and apps. From front-end design to back-end development, I blend tech expertise with creative flair to deliver results. Clear communication, modern tech, and user-focused solutions — that’s how I help businesses shine online.",
+      "I'm Aminul Islam (aka Animux), a Full Stack Web Developer based in Bangladesh with 7+ years of experience creating fast, modern, and responsive websites and web applications. I specialize in technologies like React, Next.js, Node.js, and MongoDB — delivering scalable digital solutions for startups, agencies, and businesses worldwide. Whether you're in Dhaka or abroad, I combine clean code, sleek design, and clear communication to bring your web project to life. Let’s build something amazing together.",
     url: "https://animux.dev",
     siteName: "Animux | Aminul Islam",
     images: [

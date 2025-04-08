@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 
 import { motion } from "framer-motion";
 
@@ -63,14 +62,14 @@ const Home = () => {
                 exit={{ opacity: 0, y: 500 }}
                 transition={{ delay: 0.8 }}
               >
-                <Image
+                <img
                   src="/img/hero.png"
                   width={1080}
                   height={1080}
                   className="block dark:hidden mx-auto w-svw"
                   alt="Digital Art"
                 />
-                <Image
+                <img
                   src="/img/hero-dark.png"
                   width={1080}
                   height={1080}

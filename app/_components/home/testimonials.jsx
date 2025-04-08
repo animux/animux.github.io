@@ -1,7 +1,5 @@
 "use client";
 
-import "swiper/css";
-
 import SwiperCarousel from "@/app/_components/home/carousel";
 import { TypewriterEffect } from "@/components/Typewriter";
 
@@ -27,6 +25,12 @@ const reviews = [
     designation: "Founder of 14AGAIN",
   },
   {
+    name: "Asif Mostafa Hussain",
+    picture: "/image4.jpg",
+    text: "Aminul delivered a high-caliber website aligned with our brand and business objectives. His expertise in design and user experience resulted in a polished, functional platform that has driven measurable growth in online engagement. We highly recommend his services.",
+    designation: "Founder of Fractal",
+  },
+  {
     name: "Muiz Shahab Uddin",
     picture: "/image1.jpg",
     text: "Aminul brought our vision to life with incredible precision. Our new site is stunning, optimized for search engines and mobile devices. We're thrilled with the results and look forward to future collaborations!",
@@ -44,6 +48,12 @@ const reviews = [
     text: "I’ve worked with Aminul for ages, and let me tell you. He's not just efficient, he’s a precision machine wrapped in a friendly human. Doesn’t matter if it’s work hours or some ungodly time, he’s always just a call away, ready to drop some tech wisdom like it’s nothing. If something’s broken, he’s already halfway through fixing it before you even finish explaining.",
     designation: "Founder of 14AGAIN",
   },
+  {
+    name: "Asif Mostafa Hussain",
+    picture: "/image4.jpg",
+    text: "Aminul delivered a high-caliber website aligned with our brand and business objectives. His expertise in design and user experience resulted in a polished, functional platform that has driven measurable growth in online engagement. We highly recommend his services.",
+    designation: "Founder of Fractal",
+  },
 ];
 
 const Testimonials = () => {
@@ -60,7 +70,7 @@ const Testimonials = () => {
         />
       </div>
 
-      <div className="relative h-[1273px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-[236px] before:bg-gradient-to-r before:from-white dark:before:from-zinc-900 before:to-transparent before:-translate-x-14 md:before:translate-x-0 after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-[236px] after:bg-gradient-to-l after:from-white dark:after:from-zinc-900 after:to-transparent after:translate-x-14 md:after:translate-x-0 visible opacity-100">
+      <div className="relative h-[1273px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:md:w-[236px] before:w-[150px] before:bg-gradient-to-r before:from-white dark:before:from-zinc-900 before:to-transparent before:-translate-x-14 md:before:translate-x-0 after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:md:w-[210px] after:w-[150px] after:bg-gradient-to-l after:from-white dark:after:from-zinc-900 after:to-transparent after:translate-x-14 md:after:translate-x-0 visible opacity-100">
         <div className="absolute left-1/2 flex h-full origin-top -translate-x-1/2 justify-center gap-6">
           <SwiperCarousel
             slides={reviews}
@@ -88,65 +98,11 @@ const Testimonials = () => {
             options={OPTIONS}
           />
         </div>
-        <div className="pointers-event-none absolute -top-1 md:h-72 h-24 w-full bg-gradient-to-b from-white dark:from-zinc-900 to-transparent"></div>
-        <div className="pointers-event-none absolute bottom-0 md:h-72 h-24 w-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"></div>
+        <div className="pointers-event-none absolute -top-1 md:h-72 h-20 w-full bg-gradient-to-b from-white dark:from-zinc-900 to-transparent"></div>
+        <div className="pointers-event-none absolute bottom-0 md:h-72 h-20 w-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"></div>
       </div>
     </div>
   );
-  // return (
-  //   <div
-  //     className="dark:text-white bg-no-repeat bg-center bg-cover bg-fixed"
-  //     style={{ backgroundImage: "url('/about-us.jpg')" }}
-  //   >
-  //     <div className="py-20 backdrop-filter backdrop-blur-lg bg-opacity-50 bg-white dark:bg-zinc-900 dark:backdrop-filter dark:backdrop-blur-md dark:bg-opacity-10 text-white">
-  //       <div className="container mx-auto md:px-0 px-5">
-  //         <Swiper
-  //           loop={true}
-  //           slidesPerView={1}
-  //           autoplay={{ delay: 5000, disableOnInteraction: true }}
-  //           modules={[Autoplay]}
-  //         >
-  //           {reviews.map((review, index) => (
-  //             <SwiperSlide key={index}>
-  //               <div className="bg-white dark:bg-zinc-900 py-10 px-2 md:px-20 rounded-lg text-zinc-800 dark:text-white mx-2 shadow-2xl">
-  //                 <div className="text-center">
-  //                   <FontAwesomeIcon
-  //                     icon={faQuoteLeft}
-  //                     size="6x"
-  //                     className="text-zinc-800 opacity-10 dark:text-white dark:opacity-90"
-  //                   ></FontAwesomeIcon>
-  //                   <h1 className="md:text-3xl text-2xl py-10">
-  //                     "{review.text}"
-  //                   </h1>
-  //                   <div className="flex flex-row items-center justify-center md:text-lg text-xs gap-2">
-  //                     <div className="flex flex-row items-center gap-2">
-  //                       <Image
-  //                         src={review.picture}
-  //                         alt={review.name}
-  //                         className="w-16 rounded-full"
-  //                       />
-  //                       <div className="border-zinc-400 border-r-2 pr-2">
-  //                         {review.name}
-  //                       </div>
-  //                     </div>
-  //                     <div>{review.designation}</div>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </SwiperSlide>
-  //           ))}
-  //         </Swiper>
-
-  //         <div className="flex justify-end pt-10">
-  //           <TypewriterEffect
-  //             className="md:text-6xl text-4xl uppercase text-right font-extrabold whitespace-pre-line"
-  //             text={"- They said it,\nnot me ;)"}
-  //           />
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default Testimonials;

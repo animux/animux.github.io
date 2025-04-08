@@ -11,10 +11,8 @@ import {
   faCartShopping,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
 import MasonryGrid from "@/components/MasonryGrid";
 
-import { TypeAnimation } from "react-type-animation";
 import { TypewriterEffect } from "@/components/Typewriter";
 
 const servicesData = [

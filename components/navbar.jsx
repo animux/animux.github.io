@@ -2,13 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 import ThemeSwitch from "@/components/ThemeSwitch";
-
-import Logo from "@/public/logo.png";
-import LogoDark from "@/public/logo-dark.png";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -33,16 +29,15 @@ const Navbar = () => {
       >
         <div className="flex flex-wrap items-center justify-between mx-2 p-4">
           <Link href="/" className="flex items-center">
-            <Image
-              src={Logo}
-              className="hidden dark:block"
+            <img
+              src="/logo.png"
+              className="hidden dark:block w-[100px]"
               alt="Animux"
-              width={100}
             />
-            <Image
-              src={LogoDark}
+            <img
+              src="/logo-dark.png"
               width={100}
-              className="block dark:hidden"
+              className="block dark:hidden w-[100px]"
               alt="Animux"
             />
           </Link>
