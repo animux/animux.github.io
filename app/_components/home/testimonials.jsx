@@ -31,6 +31,12 @@ const reviews = [
     designation: "Founder of Fractal",
   },
   {
+    name: "Mohammad Salman",
+    picture: "/image5.jpg",
+    text: "Working with Aminul Islam was a fantastic experience, his professionalism, creativity, and attention to detail elevated our project. He delivered exceptional results on time, making them a pleasure to collaborate with. Highly recommend for any web development needs!",
+    designation: "Managing Partner at Augmenta",
+  },
+  {
     name: "Muiz Shahab Uddin",
     picture: "/image1.jpg",
     text: "Aminul brought our vision to life with incredible precision. Our new site is stunning, optimized for search engines and mobile devices. We're thrilled with the results and look forward to future collaborations!",
@@ -53,6 +59,12 @@ const reviews = [
     picture: "/image4.jpg",
     text: "Aminul delivered a high-caliber website aligned with our brand and business objectives. His expertise in design and user experience resulted in a polished, functional platform that has driven measurable growth in online engagement. We highly recommend his services.",
     designation: "Founder of Fractal",
+  },
+  {
+    name: "Mohammad Salman",
+    picture: "/image5.jpg",
+    text: "Working with Aminul Islam was a fantastic experience, his professionalism, creativity, and attention to detail elevated our project. He delivered exceptional results on time, making them a pleasure to collaborate with. Highly recommend for any web development needs!",
+    designation: "Managing Partner at Augmenta",
   },
 ];
 
