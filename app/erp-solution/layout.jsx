@@ -12,7 +12,7 @@ export const metadata = {
       {
         url: "/og-image2.png",
         width: 3024,
-        height: 1540,
+        height: 1720,
         alt: "Animux | ERP Solution",
       },
     ],

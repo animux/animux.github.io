@@ -151,7 +151,7 @@ const DigitalSerenity = () => {
   return (
     <>
       <style>{pageStyles}</style>
-      <div className="serenity-surface pt-14 h-[75vh] bg-background text-emerald-900 dark:text-emerald-100 font-primary overflow-hidden relative">
+      <div className="serenity-surface pt-16 h-[75vh] bg-background text-emerald-900 dark:text-emerald-100 font-primary overflow-hidden relative">
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none text-emerald-800/35 dark:text-emerald-300/22"
           xmlns="http://www.w3.org/2000/svg"

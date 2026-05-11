@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -15,16 +15,67 @@ const Navbar = () => {
 
   useEffect(() => {
     document.addEventListener("scroll", () => setScrollY(window.scrollY));
+    return () => document.removeEventListener("scroll", () => {});
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/#about", label: "About" },
+    { href: "/#portfolio", label: "Portfolio" },
+    { href: "/erp-solution", label: "ERP Solution" },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const hamburgerVariants = {
+    closed: { rotate: 0 },
+    open: { rotate: 90 },
+  };
 
   return (
     <nav
-      className={
-        "fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent lg:px transition-all ease-in-out duration-300 z-20 " +
-        (scrollY >= 100
+      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent transition-all ease-in-out duration-300 z-50 ${
+        scrollY >= 100
           ? "shadow-lg border-b border-zinc-300/30 dark:border-zinc-700/40"
-          : "shadow-none")
-      }
+          : "shadow-none"
+      }`}
     >
       <motion.div
         layout
@@ -37,8 +88,9 @@ const Navbar = () => {
           layout: { duration: 0.4, ease: "easeInOut" },
         }}
       >
-        <div className="flex flex-wrap items-center justify-between mx-2 px-4 py-6">
-          <Link href="/" className="flex items-center">
+        <div className="flex items-center justify-between mx-2 px-4 py-5 md:py-6">
+          {/* Logo */}
+          <Link href="/" className="flex items-center z-40 flex-shrink-0">
             <img
               src="/logo.png"
               className="hidden dark:block w-[100px]"
@@ -52,77 +104,88 @@ const Navbar = () => {
             />
           </Link>
 
-          <div className="flex items-center flex-row justify-between md:gap-8 gap-5">
-            <button
-              data-collapse-toggle="navbar-default"
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-600"
-              onClick={() => setOpen(!isOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
+          {/* Desktop Menu + Mobile Controls Container */}
+          <div className="flex items-center justify-end gap-3 md:gap-8">
+            {/* Desktop Navigation */}
+            <ul className="hidden md:flex font-medium gap-8">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="relative py-2 text-gray-900 dark:text-white transition-colors duration-300 hover:text-zinc-600 dark:hover:text-zinc-400 group"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-zinc-600 to-zinc-700 dark:from-zinc-400 dark:to-zinc-300 group-hover:w-full transition-all duration-300"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-            <div
-              className={
-                isOpen
-                  ? "absolute top-10 left-0 w-full"
-                  : "" + "hidden w-full md:block md:w-auto basis-1/2"
-              }
-              id="navbar-default"
+            {/* Theme Switch */}
+            <ThemeSwitch></ThemeSwitch>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              variants={hamburgerVariants}
+              animate={isOpen ? "open" : "closed"}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              onClick={() => setOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-zinc-200/50 dark:hover:bg-zinc-700/50 transition-colors duration-300 z-40"
+              aria-label="Toggle menu"
             >
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:dark:bg-transparent dark:bg-zinc-900 bg-white md:bg-transparent">
-                <li>
-                  <Link
-                    href="#home"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#about"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#portfolio"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/erp-solution"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    ERP&nbsp;Solution
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <ThemeSwitch className="basis-1/4"></ThemeSwitch>
+              <motion.svg
+                className="w-6 h-6 text-gray-900 dark:text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </motion.svg>
+            </motion.button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="md:hidden bg-white dark:bg-zinc-900/95 backdrop-blur-md border-t border-zinc-200/30 dark:border-zinc-700/40"
+            >
+              <ul className="font-medium flex flex-col gap-1 p-4 sm:p-6">
+                {navItems.map((item) => (
+                  <motion.li key={item.href} variants={itemVariants}>
+                    <Link
+                      href={item.href}
+                      className="block py-3 px-4 text-gray-900 dark:text-white rounded-lg hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 transition-all duration-300 hover:translate-x-1"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </nav>
   );

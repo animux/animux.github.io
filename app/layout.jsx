@@ -28,7 +28,7 @@ export const metadata = {
       {
         url: "/og-image.png",
         width: 3024,
-        height: 1540,
+        height: 1720,
         alt: "Animux | Aminul Islam",
       },
     ],
