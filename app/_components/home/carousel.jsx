@@ -19,12 +19,12 @@ const Carousel = ({ slides, options, direction }) => {
         <div className="embla__container flex h-full flex-col will-change-transform">
           {slides.map((slide, index) => (
             <div
-              className="mb-6 min-h-fit w-[416ox]"
+              className="mb-6 min-h-fit w-full"
               style={{ transform: "translate3d(0px, 0px, 0px)" }}
               key={index}
             >
               <div
-                className="border dark:border-neutral-700 rounded-2xl w-[416px] p-8 flex flex-col gap-16 justify-between"
+                className="border dark:border-neutral-700 rounded-2xl w-[88vw] max-w-[26rem] p-5 md:w-[416px] md:p-8 flex flex-col gap-8 md:gap-16 justify-between"
                 onMouseOver={() => emblaApi?.plugins().autoScroll.stop()}
                 onMouseOut={() => emblaApi?.plugins().autoScroll.play()}
               >

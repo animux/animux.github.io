@@ -50,13 +50,17 @@ const FAQs = () => {
   ];
 
   return (
-    <div className="bg-neutral-50 dark:bg-zinc-900 py-20 text-dark dark:text-white">
-      <div className="px-5">
+    <div className="relative overflow-hidden bg-neutral-50 dark:bg-zinc-900 py-20 text-dark dark:text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(24,24,27,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(24,24,27,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
+      <div className="pointer-events-none absolute -top-80 left-1/3 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.18)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(56,189,248,0.13)_0%,transparent_58%),radial-gradient(circle_at_52%_72%,rgba(168,85,247,0.10)_0%,transparent_65%)] blur-[180px] dark:bg-[radial-gradient(circle_at_35%_30%,rgba(24,24,27,0.10)_0%,rgba(24,24,27,0.08)_40%,rgba(24,24,27,0.04)_70%,transparent_90%)] dark:opacity-60" />
+      <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.18)_0%,rgba(255,255,255,0)_72%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(192,132,252,0.24)_0%,rgba(2,6,23,0)_72%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-white/75 via-white/30 to-transparent dark:from-zinc-950/65 dark:via-zinc-950/25" />
+      <div className="relative z-10 px-5">
         <TypewriterEffect
           text={"Got Questions?\nGot Answers."}
-          className="md:text-8xl text-6xl text-right uppercase font-bold mb-20 whitespace-pre-line"
+          className="text-4xl sm:text-5xl md:text-8xl text-left md:text-right uppercase font-bold mb-10 md:mb-20 whitespace-pre-line"
         />
-        <div className="flex flex-row flex-1 flex-grow gap-14 justify-between items-center">
+        <div className="flex flex-row flex-1 flex-grow px-0 sm:px-4 md:px-8 gap-6 md:gap-14 justify-between items-center">
           <div className="basis-full">
             {faqs.map((faq, index) => (
               <Accordion title={faq.title} key={index} text={faq.text} />

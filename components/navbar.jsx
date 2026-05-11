@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 import ThemeSwitch from "@/components/ThemeSwitch";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
+  const isErpSolutionPage = pathname?.startsWith("/erp-solution");
 
   useEffect(() => {
     document.addEventListener("scroll", () => setScrollY(window.scrollY));
@@ -17,17 +20,24 @@ const Navbar = () => {
   return (
     <nav
       className={
-        "fixed w-full top-0 z-10 backdrop-filter backdrop-blur-md bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:bg-opacity-10 lg:px transition-all ease-in-out duration-300 z-20 " +
-        (scrollY >= 100 ? "shadow-lg" : "shadow-none")
+        "fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent lg:px transition-all ease-in-out duration-300 z-20 " +
+        (scrollY >= 100
+          ? "shadow-lg border-b border-zinc-300/30 dark:border-zinc-700/40"
+          : "shadow-none")
       }
     >
       <motion.div
+        layout
+        className={isErpSolutionPage ? "container mx-auto" : ""}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        transition={{ delay: 0.5 }}
+        transition={{
+          delay: 0.5,
+          layout: { duration: 0.4, ease: "easeInOut" },
+        }}
       >
-        <div className="flex flex-wrap items-center justify-between mx-2 p-4">
+        <div className="flex flex-wrap items-center justify-between mx-2 px-4 py-6">
           <Link href="/" className="flex items-center">
             <img
               src="/logo.png"
@@ -98,6 +108,14 @@ const Navbar = () => {
                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     Portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/erp-solution"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-zinc-700 md:p-0 dark:text-white md:dark:hover:text-zinc-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    ERP&nbsp;Solution
                   </Link>
                 </li>
               </ul>

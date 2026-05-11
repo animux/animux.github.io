@@ -70,7 +70,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col gap-10 w-full bg-white dark:bg-zinc-900">
+    <div className="flex flex-col gap-10 w-full bg-white dark:bg-zinc-900 pt-10">
       <div className="flex flex-col md:gap-4 gap-2 px-5 text-left">
         <TypewriterEffect
           className="md:text-8xl text-6xl font-bold"

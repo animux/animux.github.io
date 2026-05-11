@@ -8,7 +8,7 @@ const Accordion = ({ text, title }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="px-4 py-4 w-full border-b-zinc-300 border-b bg-neutral-100 dark:bg-zinc-900">
+    <div className="px-4 py-4 w-full border-b-zinc-300 border-b ">
       <div
         className="flex flex-row justify-between cursor-pointer items-center"
         onClick={() => setToggle(!toggle)}

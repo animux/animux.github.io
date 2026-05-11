@@ -3,8 +3,51 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #6ee7b7;
+  color: #09090b;
+}
+
+/* Gradient text shimmer animation */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
+}
+
+/* Flowing gradient animation for name - matches site theme */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animate-gradient-flow {
+  background-size: 300% 300%;
+  animation: gradient-flow 5s ease-in-out infinite;
+}
+
+/* Floating glow pulse for stat cards */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(110, 231, 183, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(110, 231, 183, 0.3);
+  }
 }
 
 .embla__container {
