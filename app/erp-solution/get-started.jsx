@@ -80,6 +80,7 @@ function GlobeCanvas({
   const timeRef = useRef(0);
 
   const dotsRef = useRef([]);
+  const drawRef = useRef(() => {});
 
   useEffect(() => {
     const dots = [];
@@ -245,11 +246,12 @@ function GlobeCanvas({
       }
     }
 
-    animRef.current = requestAnimationFrame(draw);
+    animRef.current = requestAnimationFrame(() => drawRef.current());
   }, [dotColor, arcColor, markerColor, autoRotateSpeed, connections, markers]);
 
   useEffect(() => {
-    animRef.current = requestAnimationFrame(draw);
+    drawRef.current = draw;
+    animRef.current = requestAnimationFrame(() => drawRef.current());
     return () => cancelAnimationFrame(animRef.current);
   }, [draw]);
 

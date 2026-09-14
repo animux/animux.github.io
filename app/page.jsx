@@ -142,10 +142,10 @@ const Home = () => {
 
                 <div className="max-w-lg space-y-2 text-left">
                   <p className="max-w-lg text-[0.9rem] leading-5 text-zinc-600 dark:text-zinc-300 sm:text-[0.94rem]">
-                    Taking ideas from "this could be cool" to fully shipped and
-                    polished. Crafting standout portfolios, speedy dashboards,
-                    storefronts that convert, and digital experiences with equal
-                    parts strategy, design, and code.
+                    Taking ideas from &quot;this could be cool&quot; to fully
+                    shipped and polished. Crafting standout portfolios, speedy
+                    dashboards, storefronts that convert, and digital
+                    experiences with equal parts strategy, design, and code.
                   </p>
                 </div>
 

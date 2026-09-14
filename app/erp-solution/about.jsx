@@ -52,7 +52,7 @@ export default function About() {
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Our ERP application is designed for companies that want better
             control over their operations without the complexity of outdated
-            enterprise systems. Whether you're managing inventory, sales,
+            enterprise systems. Whether you&apos;re managing inventory, sales,
             finance, or internal workflows, our platform gives you the tools to
             run your business with confidence.
           </p>
