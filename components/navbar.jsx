@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useLenis } from "lenis/react";
 
 import ThemeSwitch from "@/components/ThemeSwitch";
 
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const pathname = usePathname();
+  const lenis = useLenis();
   const isErpSolutionPage = pathname?.startsWith("/erp-solution");
 
   useEffect(() => {
@@ -20,11 +22,13 @@ const Navbar = () => {
 
   useEffect(() => {
     if (isOpen) {
+      lenis?.stop();
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
+      lenis?.start();
     }
-  }, [isOpen]);
+  }, [isOpen, lenis]);
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -71,10 +75,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent transition-all ease-in-out duration-300 z-50 ${
-        scrollY >= 100
-          ? "shadow-lg border-b border-zinc-300/30 dark:border-zinc-700/40"
-          : "shadow-none"
+      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent  z-50 ${
+        scrollY >= 100 ? "shadow-lg" : "shadow-none"
       }`}
     >
       <motion.div
@@ -82,9 +84,9 @@ const Navbar = () => {
         className={isErpSolutionPage ? "container mx-auto" : ""}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -50 }}
         transition={{
-          delay: 0.5,
+          y: { delay: 0.5, duration: 0.45, ease: "easeOut" },
+          opacity: { delay: 0.5, duration: 0.45, ease: "easeOut" },
           layout: { duration: 0.4, ease: "easeInOut" },
         }}
       >

@@ -7,14 +7,10 @@ import { motion } from "framer-motion";
 
 import TypeWriter from "./typewriter.js";
 
-import Button from "@/components/ui/button";
-
 import AboutUs from "@/app/_components/home/about.jsx";
 import Services from "@/app/_components/home/services";
 import Testimonials from "@/app/_components/home/testimonials";
 import FAQs from "@/app/_components/home/faqs";
-
-import { Plus } from "lucide-react";
 
 const Home = () => {
   useEffect(() => {
@@ -182,7 +178,7 @@ const Home = () => {
               transition={{ duration: 0.95, ease: "easeOut", delay: 0.35 }}
               className="relative flex h-full min-h-[260px] w-full items-end justify-center max-lg:px-5 max-lg:py-0 sm:min-h-[360px] sm:max-lg:px-8 lg:min-h-0 lg:px-0 lg:overflow-visible"
             >
-              <div className="pointer-events-none absolute inset-x-6 top-10 hidden h-[58%] border border-zinc-300/60 dark:border-white/12 lg:block" />
+              <div className="pointer-events-none absolute inset-x-6 top-10 hidden h-[58%] border border-emerald-500/60 dark:border-emerald-300/30 lg:block" />
               <div className="pointer-events-none absolute left-0 top-[60%] hidden h-px w-28 bg-zinc-400/60 dark:bg-white/15 lg:block" />
               <div className="pointer-events-none absolute bottom-24 left-0 hidden h-24 w-24 border-r border-t border-zinc-300/60 dark:border-white/12 lg:block" />
 
@@ -193,7 +189,7 @@ const Home = () => {
                   width={1080}
                   height={1080}
                   className="relative z-20 mx-auto h-full w-full max-h-[70svh] object-contain object-bottom sm:max-h-[75svh] lg:h-[110%] lg:w-[125%] lg:max-h-none lg:max-w-none"
-                  alt="Illustrated portrait of Aminul Islam"
+                  alt="Illustrated portrait"
                 />
               </div>
             </motion.div>

@@ -37,14 +37,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <GoogleAnalytics gaId="G-2GMPMX5KMJ" />
       </head>
       <body
         className={
           montserrat.className +
-          " max-w-[100%] overflow-x-hidden" +
+          " max-w-[100%] overflow-x-clip" +
           " bg-background font-sans" +
           " antialiased"
         }
