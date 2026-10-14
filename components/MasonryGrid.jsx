@@ -1,9 +1,150 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { LuGlobe } from "react-icons/lu";
 import Link from "next/link";
+
+const PREVIEW_WIDTH = 1440;
+
+function freshCaptureUrl(siteUrl, viewportHeight) {
+  const crop = Math.min(1800, Math.max(480, Math.round(viewportHeight)));
+  return `https://image.thum.io/get/maxAge/1/width/${PREVIEW_WIDTH}/crop/${crop}/noanimate/${siteUrl}`;
+}
+
+function readFrame(iframe) {
+  try {
+    const doc = iframe.contentDocument;
+    if (!doc) return { status: "live" };
+
+    const href = doc.location?.href || "";
+    if (href === "about:blank") return { status: "pending" };
+
+    const text = (doc.body?.innerText || "").toLowerCase();
+    const blocked =
+      href.startsWith("chrome-error:") ||
+      href.startsWith("about:neterror") ||
+      text.includes("refused to connect") ||
+      text.includes("refused to display") ||
+      text.includes("can't be reached") ||
+      text.includes("can’t be reached");
+
+    return { status: blocked ? "blocked" : "live" };
+  } catch {
+    return { status: "live" };
+  }
+}
+
+function LiveSitePreview({ url, title }) {
+  const containerRef = useRef(null);
+  const iframeRef = useRef(null);
+  const [box, setBox] = useState(null);
+  const [visible, setVisible] = useState(false);
+  const [source, setSource] = useState("live");
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const measure = () => {
+      const width = el.clientWidth;
+      const height = el.clientHeight;
+      if (!width || !height) return;
+      const scale = width / PREVIEW_WIDTH;
+      setBox({ scale, frameHeight: height / scale });
+    };
+
+    measure();
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(el);
+
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { rootMargin: "280px" },
+    );
+    intersectionObserver.observe(el);
+
+    return () => {
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    setSource("live");
+    setReady(false);
+  }, [url]);
+
+  useEffect(() => {
+    if (!visible || source !== "live" || ready) return;
+
+    const timer = window.setTimeout(() => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
+      const { status } = readFrame(iframe);
+      if (status === "blocked" || status === "pending") {
+        setSource("shot");
+        setReady(false);
+      }
+    }, 12000);
+
+    return () => window.clearTimeout(timer);
+  }, [visible, source, ready, url]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden bg-zinc-200 dark:bg-zinc-800"
+    >
+      <div
+        className={`absolute inset-0 animate-pulse bg-zinc-200 transition-opacity duration-500 dark:bg-zinc-800 ${ready ? "opacity-0" : "opacity-100"}`}
+      />
+
+      {visible && box && source === "live" && (
+        <iframe
+          ref={iframeRef}
+          src={url}
+          title={`${title} live preview`}
+          tabIndex={-1}
+          loading="lazy"
+          scrolling="no"
+          sandbox="allow-scripts allow-same-origin"
+          onLoad={() => {
+            const iframe = iframeRef.current;
+            if (!iframe) return;
+            const { status } = readFrame(iframe);
+            if (status === "pending") return;
+            if (status === "blocked") {
+              setSource("shot");
+              setReady(false);
+              return;
+            }
+            setReady(true);
+          }}
+          className={`pointer-events-none absolute top-0 left-0 origin-top-left border-0 transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
+          style={{
+            width: PREVIEW_WIDTH,
+            height: box.frameHeight,
+            transform: `scale(${box.scale})`,
+          }}
+        />
+      )}
+
+      {visible && box && source === "shot" && (
+        <img
+          src={freshCaptureUrl(url, box.frameHeight)}
+          alt={title}
+          onLoad={() => setReady(true)}
+          onError={() => setSource("unavailable")}
+          className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
+        />
+      )}
+    </div>
+  );
+}
 
 export default function MasonryGrid({ projects }) {
   const [hoverId, setHoverId] = useState(null);
@@ -27,11 +168,7 @@ export default function MasonryGrid({ projects }) {
             className="relative group overflow-hidden rounded-2xl border border-white/20 shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
             style={{ height: project.height }}
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <LiveSitePreview url={project.link} title={project.title} />
 
             <div className="absolute inset-0 bg-linear-to-b from-slate-900/5 to-slate-900/25" />
 
