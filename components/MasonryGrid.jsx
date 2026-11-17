@@ -165,12 +165,12 @@ export default function MasonryGrid({ projects }) {
           onClick={() => setHoverId(project.id)}
         >
           <div
-            className="relative group overflow-hidden rounded-2xl border border-white/20 shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+            className="relative group overflow-hidden rounded-2xl border border-white/20 shadow-[0_18px_45px_rgba(3,23,13,0.35)]"
             style={{ height: project.height }}
           >
             <LiveSitePreview url={project.link} title={project.title} />
 
-            <div className="absolute inset-0 bg-linear-to-b from-slate-900/5 to-slate-900/25" />
+            <div className="absolute inset-0 bg-linear-to-b from-ink/5 to-ink/25" />
 
             <motion.div
               className="absolute inset-0 flex flex-col justify-end p-6"
@@ -179,14 +179,14 @@ export default function MasonryGrid({ projects }) {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-slate-950/92 via-slate-900/70 to-transparent"
+                className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-ink/92 via-ink/70 to-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: hoverId === project.id ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
               />
 
               <motion.div
-                className="absolute inset-x-0 bottom-0 h-[100%] bg-[radial-gradient(ellipse_at_bottom,rgba(2,6,23,0.95),rgba(2,6,23,0.55)_55%,transparent_100%)]"
+                className="absolute inset-x-0 bottom-0 h-[100%] bg-[radial-gradient(ellipse_at_bottom,rgba(3,23,13,0.95),rgba(3,23,13,0.55)_55%,transparent_100%)]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: hoverId === project.id ? 0.9 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -208,7 +208,7 @@ export default function MasonryGrid({ projects }) {
                 </div>
                 <div className="flex gap-3">
                   <Link
-                    className="flex items-center gap-2 px-4 py-2 bg-white/95 text-slate-900 rounded-full font-semibold border border-white/60 hover:bg-cyan-50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/95 text-zinc-900 rounded-full font-semibold border border-white/60 hover:bg-emerald-50 transition-colors"
                     href={project.link}
                     target="_blank"
                   >

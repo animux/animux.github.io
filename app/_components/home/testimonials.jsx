@@ -2,6 +2,7 @@
 
 import SwiperCarousel from "@/app/_components/home/carousel";
 import { TypewriterEffect } from "@/components/Typewriter";
+import { SectionLabel } from "@/components/motion";
 
 const OPTIONS = { axis: "y", loop: true, watchDrag: false };
 
@@ -70,8 +71,11 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col gap-10 w-full bg-white dark:bg-zinc-900 pt-10">
+    <div className="flex flex-col gap-10 w-full bg-white dark:bg-ink pt-10">
       <div className="flex flex-col md:gap-4 gap-2 px-5 text-left">
+        <SectionLabel index="04" className="mb-2">
+          Testimonials
+        </SectionLabel>
         <TypewriterEffect
           className="md:text-8xl text-6xl font-bold"
           text={"They said it, not me ;)"}
@@ -110,8 +114,8 @@ const Testimonials = () => {
             options={OPTIONS}
           />
         </div>
-        <div className="pointers-event-none absolute -top-1 md:h-72 h-20 w-full bg-gradient-to-b from-white dark:from-zinc-900 to-transparent"></div>
-        <div className="pointers-event-none absolute bottom-0 md:h-72 h-20 w-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"></div>
+        <div className="pointers-event-none absolute -top-1 md:h-72 h-20 w-full bg-gradient-to-b from-white dark:from-ink to-transparent"></div>
+        <div className="pointers-event-none absolute bottom-0 md:h-72 h-20 w-full bg-gradient-to-t from-white dark:from-ink to-transparent"></div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className="dark:bg-zinc-950 bg-white relative flex md:flex-row flex-col justify-between items-center px-5 py-10 gap-5 dark:text-white text-zinc-950">
+    <div className="dark:bg-ink-deep bg-white relative flex md:flex-row flex-col justify-between items-center px-5 py-10 gap-5 dark:text-white text-zinc-950">
       {/* Gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
       <div className="text-lg md:text-left text-center">

@@ -24,19 +24,23 @@ const Carousel = ({ slides, options, direction }) => {
               key={index}
             >
               <div
-                className="border dark:border-neutral-700 rounded-2xl w-[88vw] max-w-[26rem] p-5 md:w-[416px] md:p-8 flex flex-col gap-8 md:gap-16 justify-between"
+                className="group relative overflow-hidden border border-zinc-200 bg-white/70 backdrop-blur-sm transition-[border-color,box-shadow,translate] duration-500 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.45)] dark:border-emerald-900/60 dark:bg-ink-800/60 rounded-2xl w-[88vw] max-w-[26rem] p-5 md:w-[416px] md:p-8 flex flex-col gap-8 md:gap-16 justify-between"
                 onMouseOver={() => emblaApi?.plugins().autoScroll.stop()}
                 onMouseOut={() => emblaApi?.plugins().autoScroll.play()}
               >
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-linear-to-r from-royal via-emerald-400 to-signal transition-transform duration-500 group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute right-5 top-2 select-none font-serif text-7xl leading-none text-zinc-200 transition-colors duration-500 group-hover:text-emerald-300/50 dark:text-emerald-950">
+                  &ldquo;
+                </span>
                 <div
-                  className=""
+                  className="relative"
                   dangerouslySetInnerHTML={{ __html: slide.text }}
                 ></div>
                 <div className="flex flex-row gap-2 items-center text-xs">
                   <img
                     src={slide.picture}
                     alt={slide.name}
-                    className="w-[50px] rounded-full"
+                    className="w-[50px] rounded-full ring-2 ring-transparent transition-all duration-500 group-hover:ring-emerald-400/70"
                   />
                   <div>
                     <div>{slide.name}</div>

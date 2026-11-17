@@ -5,11 +5,19 @@ class TypeWriter {
     this.txt = "";
     this.wordIndex = 0;
     this.wait = parseInt(wait, 10);
-    this.type();
     this.isDeleting = false;
+    this.stopped = false;
+    this.timer = null;
+    this.type();
+  }
+
+  stop() {
+    this.stopped = true;
+    clearTimeout(this.timer);
   }
 
   type() {
+    if (this.stopped) return;
     const current = this.wordIndex % this.words.length;
     const fullTxt = this.words[current];
 
@@ -19,7 +27,7 @@ class TypeWriter {
       this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
-    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+    this.txtElement.innerHTML = `<span class="txt">${this.txt || "&#8203;"}</span>`;
 
     let typeSpeed = 100;
 
@@ -36,7 +44,7 @@ class TypeWriter {
       typeSpeed = 500;
     }
 
-    setTimeout(() => this.type(), typeSpeed);
+    this.timer = setTimeout(() => this.type(), typeSpeed);
   }
 }
 

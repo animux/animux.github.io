@@ -15,6 +15,7 @@ import {
 import MasonryGrid from "@/components/MasonryGrid";
 
 import { TypewriterEffect } from "@/components/Typewriter";
+import { SectionLabel, TiltCard } from "@/components/motion";
 
 function DotPattern({
   width = 24,
@@ -32,7 +33,7 @@ function DotPattern({
   return (
     <svg
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-0 h-full w-full fill-slate-500/30 dark:fill-slate-500/20`}
+      className={`pointer-events-none absolute inset-0 h-full w-full fill-zinc-500/30 dark:fill-emerald-200/15`}
       {...props}
     >
       <defs>
@@ -58,49 +59,49 @@ const servicesData = [
     icon: faDisplay,
     title: "Web Application Development",
     text: "Crafting responsive and high-performance web applications using the latest technologies to meet your business needs.",
-    gradient: "from-cyan-500 to-blue-500",
-    glow: "hover:shadow-cyan-500/25",
-    topBar: "from-cyan-400 to-blue-400",
+    gradient: "from-emerald-500 to-royal",
+    glow: "hover:shadow-emerald-500/25",
+    topBar: "from-emerald-400 to-royal",
   },
   {
     icon: faCartShopping,
     title: "E-Commerce Solutions",
     text: "Building and optimizing online stores with secure payment gateways and intuitive user experiences.",
-    gradient: "from-lime-500 to-emerald-500",
-    glow: "hover:shadow-lime-500/25",
-    topBar: "from-lime-400 to-emerald-400",
+    gradient: "from-signal to-emerald-600",
+    glow: "hover:shadow-signal/25",
+    topBar: "from-signal to-emerald-500",
   },
   {
     icon: faPencil,
     title: "UX/UI Design Collaboration",
     text: "Collaborating with UX/UI designers to create intuitive and engaging user experiences.",
-    gradient: "from-fuchsia-500 to-pink-500",
-    glow: "hover:shadow-fuchsia-500/25",
-    topBar: "from-fuchsia-400 to-pink-400",
+    gradient: "from-moss to-royal",
+    glow: "hover:shadow-moss/30",
+    topBar: "from-moss to-emerald-500",
   },
   {
     icon: faGear,
     title: "Maintenance and Support",
     text: "Providing ongoing maintenance and support to keep your applications running smoothly and securely.",
-    gradient: "from-amber-500 to-red-500",
-    glow: "hover:shadow-amber-500/25",
-    topBar: "from-amber-400 to-red-400",
+    gradient: "from-emerald-600 to-ink",
+    glow: "hover:shadow-emerald-600/25",
+    topBar: "from-emerald-500 to-royal",
   },
   {
     icon: faArrowTrendUp,
     title: "Performance Optimization",
     text: "Enhancing the speed and efficiency of your web applications through various optimization techniques.",
-    gradient: "from-violet-500 to-indigo-500",
-    glow: "hover:shadow-violet-500/25",
-    topBar: "from-violet-400 to-indigo-400",
+    gradient: "from-emerald-400 to-moss",
+    glow: "hover:shadow-emerald-400/25",
+    topBar: "from-emerald-400 to-moss",
   },
   {
     icon: faCloud,
     title: "Cloud Services",
     text: "Deploying and managing applications on cloud platforms e.g AWS and Google Cloud for enhanced scalability and reliability.",
-    gradient: "from-sky-500 to-teal-500",
-    glow: "hover:shadow-sky-500/25",
-    topBar: "from-sky-400 to-teal-400",
+    gradient: "from-royal to-signal",
+    glow: "hover:shadow-signal/25",
+    topBar: "from-royal to-signal",
   },
 ];
 
@@ -166,20 +167,21 @@ const myWork = [
 const Services = () => {
   return (
     <div
-      className="relative py-10 bg-white dark:bg-zinc-900 text-dark dark:text-white overflow-hidden"
+      className="relative py-10 bg-white dark:bg-ink text-dark dark:text-white overflow-hidden"
       id="services"
     >
       {/* Grid Pattern Background */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(24,24,27,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(24,24,27,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
 
       {/* Gradient Overlay - Top Left */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-sky-500/15 via-violet-500/8 to-transparent rounded-full blur-3xl pointer-events-none dark:from-sky-500/10 dark:via-violet-500/5" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-500/15 via-royal/10 to-transparent rounded-full blur-3xl pointer-events-none dark:from-emerald-500/12 dark:via-royal/10" />
 
       {/* Gradient Overlay - Bottom Right */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-500/20 via-rose-500/10 to-transparent rounded-full blur-3xl pointer-events-none dark:from-emerald-500/10 dark:via-rose-500/5" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-signal/20 via-moss/12 to-transparent rounded-full blur-3xl pointer-events-none dark:from-signal/10 dark:via-moss/8" />
 
       <div className="relative px-5 z-10">
         <div className="mb-10 px-2 sm:px-4 md:px-8">
+          <SectionLabel index="02">Services</SectionLabel>
           <TypewriterEffect
             text={"How I can power\nup your web game"}
             className="text-4xl sm:text-5xl md:text-8xl text-left font-bold whitespace-pre-line"
@@ -192,10 +194,15 @@ const Services = () => {
             <div className="flex md:flex-row flex-col gap-5 flex-wrap justify-center items-stretch flex-grow flex-1 relative z-10">
               {servicesData.map((service, index) => (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 * index }}
-                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 60, rotateX: 25 }}
+                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{
+                    delay: 0.1 * index,
+                    duration: 0.9,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  style={{ transformPerspective: 1000 }}
                   key={index}
                   className="w-full sm:basis-[calc(50%-0.75rem)] lg:basis-1/4 flex-grow"
                 >
@@ -215,6 +222,9 @@ const Services = () => {
         </div>
 
         <div className="pt-5 px-2 sm:px-4 md:px-8" id="portfolio">
+          <SectionLabel index="03" className="md:justify-end">
+            Selected work
+          </SectionLabel>
           <TypewriterEffect
             text={"Proof that I don't just\nCtrl+C, Ctrl+V"}
             className="text-4xl sm:text-5xl md:text-8xl text-left md:text-right font-bold mb-10 md:mb-20 whitespace-pre-line"
@@ -228,19 +238,21 @@ const Services = () => {
 
 const ServiceCard = ({ icon, title, text, gradient, glow, topBar }) => {
   return (
-    <div
-      className={`relative isolate overflow-hidden basis-1/4 flex flex-col gap-4 md:gap-5 text-center p-6 md:p-8 items-center flex-grow flex-1 justify-center rounded-2xl min-h-[300px] md:h-[350px] border border-white/20 bg-white/30 dark:bg-zinc-900/30 shadow-xl backdrop-blur-2xl ${glow} transition-all ease-out duration-300 cursor-pointer group hover:-translate-y-2 hover:scale-[1.01]`}
+    <TiltCard
+      max={9}
+      className={`isolate overflow-hidden basis-1/4 flex flex-col gap-4 md:gap-5 text-center p-6 md:p-8 items-center flex-grow flex-1 justify-center rounded-2xl min-h-[300px] md:h-[350px] border border-zinc-200/70 dark:border-white/10 bg-white/50 dark:bg-ink-800/50 shadow-xl hover:shadow-2xl backdrop-blur-2xl ${glow} transition-shadow ease-out duration-300 cursor-pointer group`}
     >
       <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] [background-size:34px_34px] opacity-15 pointer-events-none" />
       <div className="absolute left-6 right-6 top-[7.2rem] hidden h-px bg-white/8 dark:bg-white/8 md:block" />
       <div className="absolute left-6 right-6 top-[11.6rem] hidden h-px bg-white/3 dark:bg-white/3 md:block" />
 
       <div
-        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${topBar}`}
+        className={`absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-30 bg-gradient-to-r ${topBar} transition-transform duration-500 group-hover:scale-x-100`}
       />
 
       <div
-        className={`relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center border border-white/20 shadow-lg backdrop-blur-md flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+        style={{ transform: "translateZ(50px)" }}
+        className={`relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center border border-white/20 shadow-lg backdrop-blur-md flex-shrink-0 transition-[rotate,scale] duration-500 group-hover:scale-110 group-hover:rotate-[8deg]`}
       >
         <FontAwesomeIcon
           icon={icon}
@@ -249,7 +261,7 @@ const ServiceCard = ({ icon, title, text, gradient, glow, topBar }) => {
         />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10" style={{ transform: "translateZ(30px)" }}>
         <h1 className="relative py-2 text-lg md:text-xl uppercase font-black text-neutral-900 dark:text-white transition-colors duration-300">
           {title}
         </h1>
@@ -257,7 +269,7 @@ const ServiceCard = ({ icon, title, text, gradient, glow, topBar }) => {
           {text}
         </p>
       </div>
-    </div>
+    </TiltCard>
   );
 };
 

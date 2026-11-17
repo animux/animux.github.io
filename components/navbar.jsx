@@ -35,6 +35,7 @@ const Navbar = () => {
     { href: "/#about", label: "About" },
     { href: "/#portfolio", label: "Portfolio" },
     { href: "/erp-solution", label: "ERP Solution" },
+    { href: "/blog", label: "Blog" },
   ];
 
   const containerVariants = {
@@ -75,7 +76,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-zinc-950/60 dark:via-zinc-950/30 dark:to-transparent  z-50 ${
+      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-ink-deep/60 dark:via-ink-deep/30 dark:to-transparent  z-50 ${
         scrollY >= 100 ? "shadow-lg" : "shadow-none"
       }`}
     >
@@ -170,7 +171,7 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="md:hidden bg-white dark:bg-zinc-900/95 backdrop-blur-md border-t border-zinc-200/30 dark:border-zinc-700/40"
+              className="md:hidden bg-white dark:bg-ink/95 backdrop-blur-md border-t border-zinc-200/30 dark:border-zinc-700/40"
             >
               <ul className="font-medium flex flex-col gap-1 p-4 sm:p-6">
                 {navItems.map((item) => (
