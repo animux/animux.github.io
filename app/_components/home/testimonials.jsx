@@ -71,7 +71,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col gap-10 w-full bg-white dark:bg-ink pt-10">
+    <div className="flex flex-col gap-10 w-full bg-white dark:bg-neutral-950 pt-10">
       <div className="flex flex-col md:gap-4 gap-2 px-5 text-left">
         <SectionLabel index="04" className="mb-2">
           Testimonials
@@ -86,7 +86,7 @@ const Testimonials = () => {
         />
       </div>
 
-      <div className="relative h-[1273px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:md:w-[236px] before:w-[150px] before:bg-gradient-to-r before:from-white dark:before:from-zinc-900 before:to-transparent before:-translate-x-14 md:before:translate-x-0 after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:md:w-[210px] after:w-[150px] after:bg-gradient-to-l after:from-white dark:after:from-zinc-900 after:to-transparent after:translate-x-14 md:after:translate-x-0 visible opacity-100">
+      <div className="relative h-[1273px] overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:md:w-[236px] before:w-[150px] before:bg-gradient-to-r before:from-white dark:before:from-neutral-950 before:to-transparent before:-translate-x-14 md:before:translate-x-0 after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:md:w-[210px] after:w-[150px] after:bg-gradient-to-l after:from-white dark:after:from-neutral-950 after:to-transparent after:translate-x-14 md:after:translate-x-0 visible opacity-100">
         <div className="absolute left-1/2 flex h-full origin-top -translate-x-1/2 justify-center gap-6">
           <SwiperCarousel
             slides={reviews}
@@ -114,8 +114,8 @@ const Testimonials = () => {
             options={OPTIONS}
           />
         </div>
-        <div className="pointers-event-none absolute -top-1 md:h-72 h-20 w-full bg-gradient-to-b from-white dark:from-ink to-transparent"></div>
-        <div className="pointers-event-none absolute bottom-0 md:h-72 h-20 w-full bg-gradient-to-t from-white dark:from-ink to-transparent"></div>
+        <div className="pointers-event-none absolute -top-1 md:h-72 h-20 w-full bg-gradient-to-b from-white dark:from-neutral-950 to-transparent"></div>
+        <div className="pointers-event-none absolute bottom-0 md:h-72 h-20 w-full bg-gradient-to-t from-white dark:from-neutral-950 to-transparent"></div>
       </div>
     </div>
   );

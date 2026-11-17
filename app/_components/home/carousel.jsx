@@ -24,12 +24,12 @@ const Carousel = ({ slides, options, direction }) => {
               key={index}
             >
               <div
-                className="group relative overflow-hidden border border-zinc-200 bg-white/70 backdrop-blur-sm transition-[border-color,box-shadow,translate] duration-500 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.45)] dark:border-emerald-900/60 dark:bg-ink-800/60 rounded-2xl w-[88vw] max-w-[26rem] p-5 md:w-[416px] md:p-8 flex flex-col gap-8 md:gap-16 justify-between"
+                className="group relative overflow-hidden border border-neutral-200 bg-white/70 backdrop-blur-sm transition-[border-color,box-shadow,translate] duration-500 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.203)] dark:border-neutral-700 dark:bg-neutral-900/60 rounded-2xl w-[88vw] max-w-[26rem] p-5 md:w-[416px] md:p-8 flex flex-col gap-8 md:gap-16 justify-between"
                 onMouseOver={() => emblaApi?.plugins().autoScroll.stop()}
                 onMouseOut={() => emblaApi?.plugins().autoScroll.play()}
               >
-                <span className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-linear-to-r from-royal via-emerald-400 to-signal transition-transform duration-500 group-hover:scale-x-100" />
-                <span className="pointer-events-none absolute right-5 top-2 select-none font-serif text-7xl leading-none text-zinc-200 transition-colors duration-500 group-hover:text-emerald-300/50 dark:text-emerald-950">
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-linear-to-r from-neutral-900 to-emerald-500 dark:from-white dark:to-emerald-400 transition-transform duration-500 group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute right-5 top-2 select-none font-serif text-7xl leading-none text-neutral-200 transition-colors duration-500 group-hover:text-emerald-300/50 dark:text-neutral-800">
                   &ldquo;
                 </span>
                 <div

@@ -57,11 +57,11 @@ const FAQs = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-neutral-50 dark:bg-ink py-20 text-dark dark:text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(24,24,27,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(24,24,27,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="pointer-events-none absolute -top-80 left-1/3 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.18)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.13)_0%,transparent_58%),radial-gradient(circle_at_52%_72%,rgba(11,110,63,0.10)_0%,transparent_65%)] blur-[180px] dark:bg-[radial-gradient(circle_at_35%_30%,rgba(24,24,27,0.10)_0%,rgba(24,24,27,0.08)_40%,rgba(24,24,27,0.04)_70%,transparent_90%)] dark:opacity-60" />
-      <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(91,138,60,0.18)_0%,rgba(255,255,255,0)_72%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(16,185,129,0.24)_0%,rgba(3,23,13,0)_72%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-white/75 via-white/30 to-transparent dark:from-ink-deep/65 dark:via-ink-deep/25" />
+    <div className="relative overflow-hidden bg-neutral-50 dark:bg-neutral-950 py-20 text-dark dark:text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(23,23,23,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(23,23,23,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
+      <div className="pointer-events-none absolute -top-80 left-1/3 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.081)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.059)_0%,transparent_58%),radial-gradient(circle_at_52%_72%,rgba(11,110,63,0.045)_0%,transparent_65%)] blur-[180px] dark:bg-[radial-gradient(circle_at_35%_30%,rgba(23,23,23,0.10)_0%,rgba(23,23,23,0.08)_40%,rgba(23,23,23,0.04)_70%,transparent_90%)] dark:opacity-60" />
+      <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(91,138,60,0.081)_0%,rgba(255,255,255,0)_72%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(16,185,129,0.108)_0%,rgba(10,10,10,0)_72%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-white/75 via-white/30 to-transparent dark:from-neutral-950/65 dark:via-neutral-950/25" />
       {/* 3D wireframe knot drifting behind the heading */}
       <div className="pointer-events-none absolute -left-24 top-0 h-[380px] w-[380px] opacity-80 md:-left-10 md:h-[520px] md:w-[520px]">
         <OrbScene variant="knot" className="h-full w-full" />

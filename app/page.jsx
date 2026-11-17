@@ -62,10 +62,11 @@ const typedWords = [
   "Deploy-ready, chaos-free products.",
 ];
 
-const gradientText = {
-  backgroundImage: "var(--brand-gradient)",
+const heroGradientText = {
+  backgroundImage: "var(--hero-gradient)",
   backgroundSize: "300% 300%",
 };
+
 
 const Home = () => {
   const heroRef = useRef(null);
@@ -98,7 +99,7 @@ const Home = () => {
           className="relative isolate overflow-x-hidden overflow-y-hidden px-4 pt-14 md:pt-28 sm:px-5"
           id="home"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(24,24,27,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(24,24,27,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_95%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(23,23,23,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(23,23,23,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_95%)]" />
           {/* Top-center primary glow - splash fade */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -106,7 +107,7 @@ const Home = () => {
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
             className="pointer-events-none absolute inset-0"
           >
-            <div className="absolute -top-80 left-1/3 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.18)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.13)_0%,transparent_58%),radial-gradient(circle_at_52%_72%,rgba(11,110,63,0.10)_0%,transparent_65%)] blur-[180px] dark:bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.12)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.08)_0%,transparent_58%)]" />
+            <div className="absolute -top-80 left-1/3 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.18)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.13)_0%,transparent_58%),radial-gradient(circle_at_52%_72%,rgba(11,110,63,0.1)_0%,transparent_65%)] blur-[180px] dark:bg-[radial-gradient(circle_at_20%_25%,rgba(16,185,129,0.12)_0%,transparent_60%),radial-gradient(circle_at_78%_22%,rgba(57,224,121,0.08)_0%,transparent_58%)]" />
           </motion.div>
 
           <motion.div
@@ -115,9 +116,9 @@ const Home = () => {
             transition={{ duration: 1.3, ease: "easeOut", delay: 0.9 }}
             className="pointer-events-none absolute inset-0"
           >
-            <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(91,138,60,0.18)_0%,rgba(255,255,255,0)_72%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(16,185,129,0.24)_0%,rgba(3,23,13,0)_72%)]" />
+            <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(91,138,60,0.18)_0%,rgba(255,255,255,0)_72%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(16,185,129,0.24)_0%,rgba(10,10,10,0)_72%)]" />
           </motion.div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-white/75 via-white/30 to-transparent dark:from-ink-deep/65 dark:via-ink-deep/25" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-linear-to-b from-white/75 via-white/30 to-transparent dark:from-neutral-950/65 dark:via-neutral-950/25" />
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -131,13 +132,13 @@ const Home = () => {
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 1.4, ease, delay: 0.2 }}
-              className="pointer-events-none absolute inset-y-0 left-0 w-px origin-top bg-zinc-300/60 dark:bg-white/10"
+              className="pointer-events-none absolute inset-y-0 left-0 w-px origin-top bg-neutral-300/60 dark:bg-white/10"
             />
             <motion.span
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 1.4, ease, delay: 0.35 }}
-              className="pointer-events-none absolute inset-y-0 right-0 w-px origin-top bg-zinc-300/60 dark:bg-white/10"
+              className="pointer-events-none absolute inset-y-0 right-0 w-px origin-top bg-neutral-300/60 dark:bg-white/10"
             />
             {/* Light beams riding the frame */}
             <span className="pointer-events-none absolute left-0 top-0 h-40 w-px overflow-hidden">
@@ -150,12 +151,12 @@ const Home = () => {
               />
             </span>
 
-            <div className="relative hidden border-r border-zinc-300/60 dark:border-white/10 lg:flex lg:flex-col lg:items-center lg:justify-between lg:py-10">
+            <div className="relative hidden border-r border-neutral-300/60 dark:border-white/10 lg:flex lg:flex-col lg:items-center lg:justify-between lg:py-10">
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease, delay: 0.8 }}
-                className="text-[11px] font-medium uppercase tracking-[0.28em] text-zinc-700 [writing-mode:vertical-rl] rotate-180 dark:text-zinc-300"
+                className="text-[11px] font-medium uppercase tracking-[0.28em] text-neutral-700 [writing-mode:vertical-rl] rotate-180 dark:text-neutral-300"
               >
                 Reimagining the digital landscape
               </motion.span>
@@ -163,7 +164,7 @@ const Home = () => {
               <a
                 href="#about"
                 aria-label="Scroll to about"
-                className="group relative flex h-16 w-px items-start overflow-hidden bg-zinc-300/70 dark:bg-white/15"
+                className="group relative flex h-16 w-px items-start overflow-hidden bg-neutral-300/70 dark:bg-white/15"
               >
                 <motion.span
                   animate={{ y: ["-100%", "400%"] }}
@@ -175,7 +176,7 @@ const Home = () => {
                   className="block h-4 w-px bg-emerald-500 dark:bg-emerald-300"
                 />
               </a>
-              <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-zinc-500 [writing-mode:vertical-rl] rotate-180 dark:text-zinc-500">
+              <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500 [writing-mode:vertical-rl] rotate-180 dark:text-neutral-500">
                 © 2026
               </span>
             </div>
@@ -188,13 +189,13 @@ const Home = () => {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.1, ease, delay: 0.9 }}
-                className="pointer-events-none absolute left-5 top-20 hidden h-px w-40 origin-left bg-zinc-400/60 dark:bg-white/20 lg:block"
+                className="pointer-events-none absolute left-5 top-20 hidden h-px w-40 origin-left bg-neutral-400/60 dark:bg-white/20 lg:block"
               />
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.1 }}
-                className="pointer-events-none absolute left-5 top-20 hidden h-24 w-24 border-l border-b border-zinc-400/60 dark:border-white/20 lg:block"
+                className="pointer-events-none absolute left-5 top-20 hidden h-24 w-24 border-l border-b border-neutral-400/60 dark:border-white/20 lg:block"
               />
 
               <div className="pointer-events-none absolute left-0 top-0 hidden h-1/3 w-px bg-gradient-to-b from-emerald-400/60 via-signal/30 to-transparent lg:block" />
@@ -203,7 +204,7 @@ const Home = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease, delay: 0.3 }}
-                  className="mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400"
+                  className="mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400"
                 >
                   <span className="h-px w-8 shrink-0 bg-linear-to-r from-emerald-400 to-signal" />
                   {/* Invisible longest phrase reserves the box, so typing,
@@ -217,7 +218,7 @@ const Home = () => {
                     </span>
                     <span className="col-start-1 row-start-1">
                       <span
-                        className="txt-type border-r-2 border-zinc-900 pr-2 dark:border-white"
+                        className="txt-type border-r-2 border-neutral-900 pr-2 dark:border-white"
                         data-wait="3000"
                         data-words={JSON.stringify(typedWords)}
                       />
@@ -229,7 +230,7 @@ const Home = () => {
                   <h1 className="text-[clamp(2.6rem,16vw,3.8rem)] font-black leading-[0.82] tracking-[-0.08em] md:text-[clamp(3.8rem,11vw,7.4rem)]">
                     <MaskReveal delay={0.35}>
                       <span
-                        style={gradientText}
+                        style={heroGradientText}
                         className="inline-block bg-clip-text pr-[0.08em] text-transparent animate-gradient-flow"
                       >
                         Hello,
@@ -241,7 +242,7 @@ const Home = () => {
                     <h2 className="text-[clamp(1.6rem,8.6vw,2.6rem)] font-black leading-[0.95] tracking-[-0.07em] md:text-[clamp(2rem,5.4vw,4.35rem)]">
                       <MaskReveal delay={0.5}>
                         <span
-                          style={gradientText}
+                          style={heroGradientText}
                           className="inline-block bg-clip-text pr-[0.06em] text-transparent animate-gradient-flow"
                         >
                           I&apos;m Aminul Islam
@@ -252,7 +253,7 @@ const Home = () => {
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, ease, delay: 0.9 }}
-                      className="pb-1 text-sm font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400"
+                      className="pb-1 text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500 dark:text-neutral-400"
                     >
                       aka Animux
                     </motion.p>
@@ -271,7 +272,7 @@ const Home = () => {
                   transition={{ duration: 0.9, ease, delay: 0.75 }}
                   className="max-w-lg space-y-2 text-left"
                 >
-                  <p className="max-w-lg text-[0.9rem] leading-5 text-zinc-600 dark:text-zinc-300 sm:text-[0.94rem]">
+                  <p className="max-w-lg text-[0.9rem] leading-5 text-neutral-600 dark:text-neutral-300 sm:text-[0.94rem]">
                     Taking ideas from &quot;this could be cool&quot; to fully
                     shipped and polished. Crafting standout portfolios, speedy
                     dashboards, storefronts that convert, and digital
@@ -279,7 +280,7 @@ const Home = () => {
                   </p>
                 </motion.div>
 
-                <div className="grid grid-cols-3 gap-4 border-t border-zinc-300/50 pt-4 lg:max-w-[40rem] dark:border-white/10">
+                <div className="grid grid-cols-3 gap-4 border-t border-neutral-300/50 pt-4 lg:max-w-[40rem] dark:border-white/10">
                   {heroStats.map((stat, i) => (
                     <motion.div
                       key={stat.number}
@@ -289,10 +290,10 @@ const Home = () => {
                       className="group relative space-y-3"
                     >
                       <div className="mb-2 h-1 w-14 bg-gradient-to-r from-royal via-emerald-400 to-signal transition-all duration-500 group-hover:w-24" />
-                      <p className="text-[2.25rem] font-black leading-none tracking-[-0.06em] text-zinc-950 dark:text-white sm:text-[2.75rem]">
+                      <p className="text-[2.25rem] font-black leading-none tracking-[-0.06em] text-neutral-950 dark:text-white sm:text-[2.75rem]">
                         <CountUp value={stat.number} delay={1 + i * 0.12} />
                       </p>
-                      <p className="mt-1 max-w-[12rem] text-xs font-medium uppercase leading-4 tracking-[0.1em] text-zinc-600 dark:text-zinc-400">
+                      <p className="mt-1 max-w-[12rem] text-xs font-medium uppercase leading-4 tracking-[0.1em] text-neutral-600 dark:text-neutral-400">
                         {stat.label}
                       </p>
                     </motion.div>
@@ -308,7 +309,7 @@ const Home = () => {
                   <Magnetic>
                     <a
                       href="mailto:hello@animux.dev"
-                      className="group relative inline-flex items-center gap-3 overflow-hidden bg-zinc-950 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_-10px_rgba(16,185,129,0.6)] dark:bg-white dark:text-zinc-950"
+                      className="group relative inline-flex items-center gap-3 overflow-hidden bg-neutral-950 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_40px_-10px_rgba(16,185,129,0.6)] dark:bg-white dark:text-neutral-950"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-royal via-emerald-400 to-signal transition-transform duration-500 ease-out group-hover:translate-x-0" />
                       <span className="relative">Let&apos;s talk</span>
@@ -319,7 +320,7 @@ const Home = () => {
                   </Magnetic>
                   <a
                     href="#about"
-                    className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-zinc-700 transition-colors hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white"
+                    className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
                   >
                     Discover More
                     <span className="text-lg leading-none transition-transform duration-300 group-hover:translate-y-1">
@@ -348,8 +349,8 @@ const Home = () => {
                 <span className="absolute -bottom-1 -left-1 h-2 w-2 bg-royal" />
                 <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-emerald-400" />
               </motion.div>
-              <div className="pointer-events-none absolute left-0 top-[60%] hidden h-px w-28 bg-zinc-400/60 dark:bg-white/15 lg:block" />
-              <div className="pointer-events-none absolute bottom-24 left-0 hidden h-24 w-24 border-r border-t border-zinc-300/60 dark:border-white/12 lg:block" />
+              <div className="pointer-events-none absolute left-0 top-[60%] hidden h-px w-28 bg-neutral-400/60 dark:bg-white/15 lg:block" />
+              <div className="pointer-events-none absolute bottom-24 left-0 hidden h-24 w-24 border-r border-t border-neutral-300/60 dark:border-white/12 lg:block" />
 
               {/* 3D orbit scene */}
               <motion.div
@@ -364,7 +365,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease, delay: 1.4 }}
-                className="absolute right-4 top-4 z-30 flex items-center gap-2 border border-zinc-300/70 bg-white/60 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-zinc-700 backdrop-blur-md dark:border-white/15 dark:bg-ink-800/50 dark:text-zinc-300 lg:right-10 lg:top-14"
+                className="absolute right-4 top-4 z-30 flex items-center gap-2 border border-neutral-300/70 bg-white/60 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-700 backdrop-blur-md dark:border-white/15 dark:bg-neutral-900/50 dark:text-neutral-300 lg:right-10 lg:top-14"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping-soft absolute inset-0 rounded-full bg-emerald-400" />
@@ -393,9 +394,9 @@ const Home = () => {
       </div>
 
       {/* Tech stack ticker */}
-      <div className="relative border-y border-zinc-300/60 bg-white py-5 dark:border-white/10 dark:bg-ink-deep">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-white to-transparent dark:from-ink-deep" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-white to-transparent dark:from-ink-deep" />
+      <div className="relative border-y border-neutral-300/60 bg-white py-5 dark:border-white/10 dark:bg-neutral-950">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-white to-transparent dark:from-neutral-950" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-white to-transparent dark:from-neutral-950" />
         <Marquee items={stack} />
       </div>
 
