@@ -4,17 +4,22 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
 
-// Animux brand palette (royal → emerald → signal → mint), shared with the Tailwind gradients.
-const PALETTE = [0x10b981, 0x39e079, 0x0b6e3f, 0xa7f3c9, 0x5b8a3c];
+const GREEN = 0x10b981;
+// Hero: Animux greens. Elsewhere (FAQ knot): neutral greys with a green tip.
+const HERO_PALETTE = [0x10b981, 0x39e079, 0x0b6e3f, 0xa7f3c9, 0x5b8a3c];
+const stops = (isDark, green) =>
+  green
+    ? [0x0b6e3f, 0x10b981, 0x39e079]
+    : isDark
+      ? [0x404040, 0xd4d4d4, GREEN]
+      : [0x171717, 0x737373, GREEN];
 
-function gradientColors(geometry, axis = "y") {
+function gradientColors(geometry, axis = "y", isDark = true, green = false) {
   geometry.computeBoundingBox();
   const { min, max } = geometry.boundingBox;
   const pos = geometry.attributes.position;
   const colors = new Float32Array(pos.count * 3);
-  const a = new THREE.Color(0x0b6e3f);
-  const b = new THREE.Color(0x10b981);
-  const c = new THREE.Color(0x39e079);
+  const [a, b, c] = stops(isDark, green).map((hex) => new THREE.Color(hex));
   const tmp = new THREE.Color();
   for (let i = 0; i < pos.count; i++) {
     const v = axis === "y" ? pos.getY(i) : pos.getX(i);
@@ -34,7 +39,7 @@ function buildHero(scene, isDark) {
 
   // Core: faceted gradient icosahedron
   const coreGeo = new THREE.IcosahedronGeometry(1.15, 1);
-  gradientColors(coreGeo);
+  gradientColors(coreGeo, "y", isDark, true);
   const core = new THREE.Mesh(
     coreGeo,
     new THREE.MeshStandardMaterial({
@@ -62,9 +67,9 @@ function buildHero(scene, isDark) {
 
   // Orbit rings
   const rings = [
-    { r: 2.25, color: 0x39e079, tilt: [1.2, 0.2, 0] },
+    { r: 2.25, color: GREEN, tilt: [1.2, 0.2, 0] },
     { r: 2.6, color: isDark ? 0xa7f3c9 : 0x0b6e3f, tilt: [0.4, 0.9, 0.3] },
-    { r: 2.0, color: 0x10b981, tilt: [-0.6, -0.4, 0.8] },
+    { r: 2.0, color: 0x39e079, tilt: [-0.6, -0.4, 0.8] },
   ].map(({ r, color, tilt }) => {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(r, 0.008, 8, 160),
@@ -97,7 +102,7 @@ function buildHero(scene, isDark) {
       i % 2 === 0
         ? new THREE.BoxGeometry(0.14, 0.14, 0.14)
         : new THREE.TetrahedronGeometry(0.12, 0);
-    const color = PALETTE[i % PALETTE.length];
+    const color = HERO_PALETTE[i % HERO_PALETTE.length];
     const m = new THREE.Mesh(
       geo,
       new THREE.MeshStandardMaterial({
@@ -137,7 +142,7 @@ function buildHero(scene, isDark) {
       ],
       i * 3,
     );
-    tmp.setHex(PALETTE[i % PALETTE.length]);
+    tmp.setHex(HERO_PALETTE[i % HERO_PALETTE.length]);
     colors.set([tmp.r, tmp.g, tmp.b], i * 3);
   }
   const pGeo = new THREE.BufferGeometry();
@@ -189,7 +194,7 @@ function buildKnot(scene, isDark) {
   const root = new THREE.Group();
   scene.add(root);
   const geo = new THREE.TorusKnotGeometry(1.3, 0.38, 220, 22, 2, 3);
-  gradientColors(geo, "x");
+  gradientColors(geo, "x", isDark);
   const solid = new THREE.Mesh(
     geo,
     new THREE.MeshStandardMaterial({
@@ -259,9 +264,9 @@ export default function OrbScene({ variant = "hero", className = "" }) {
     const key = new THREE.DirectionalLight(0xffffff, 1.6);
     key.position.set(3, 4, 5);
     scene.add(key);
-    const rim1 = new THREE.PointLight(0x39e079, 18, 20);
+    const rim1 = new THREE.PointLight(GREEN, variant === "hero" ? 18 : 12, 20);
     rim1.position.set(-4, -2, 3);
-    const rim2 = new THREE.PointLight(0x10b981, 18, 20);
+    const rim2 = new THREE.PointLight(variant === "hero" ? 0x39e079 : 0xffffff, variant === "hero" ? 18 : 10, 20);
     rim2.position.set(4, 2, -3);
     scene.add(rim1, rim2);
 

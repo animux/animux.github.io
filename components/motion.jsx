@@ -23,7 +23,7 @@ export function ScrollProgress() {
   return (
     <motion.div
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-linear-to-r from-royal via-emerald-400 to-signal"
+      className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-linear-to-r from-neutral-900 to-emerald-500 dark:from-white dark:to-emerald-400"
     />
   );
 }
@@ -43,7 +43,7 @@ export function TiltCard({
   const gy = useMotionValue(50);
   const srx = useSpring(rx, { stiffness: 180, damping: 18 });
   const sry = useSpring(ry, { stiffness: 180, damping: 18 });
-  const spotlight = useMotionTemplate`radial-gradient(420px circle at ${gx}% ${gy}%, rgba(110,231,183,0.22), rgba(57,224,121,0.10) 35%, transparent 65%)`;
+  const spotlight = useMotionTemplate`radial-gradient(420px circle at ${gx}% ${gy}%, rgba(110,231,183,0.099), rgba(57,224,121,0.045) 35%, transparent 65%)`;
 
   const onMove = (e) => {
     if (e.pointerType === "touch") return;
@@ -175,7 +175,7 @@ export function SectionLabel({ index, children, className = "" }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className={`mb-6 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 ${className}`}
+      className={`mb-6 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400 ${className}`}
     >
       <span className="font-mono text-emerald-500 dark:text-emerald-300">
         [{index}]
@@ -183,7 +183,7 @@ export function SectionLabel({ index, children, className = "" }) {
       <motion.span
         variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="h-px w-16 origin-left bg-linear-to-r from-royal via-emerald-400 to-signal"
+        className="h-px w-16 origin-left bg-linear-to-r from-neutral-900 to-emerald-500 dark:from-white dark:to-emerald-400"
       />
       <motion.span
         variants={{
@@ -213,10 +213,10 @@ export function Marquee({ items, reverse = false }) {
           {row.concat(row).map((item, i) => (
             <span
               key={i}
-              className="flex items-center gap-10 whitespace-nowrap text-2xl font-black uppercase tracking-[-0.03em] text-zinc-900 md:text-4xl dark:text-white"
+              className="flex items-center gap-10 whitespace-nowrap text-2xl font-black uppercase tracking-[-0.03em] text-neutral-900 md:text-4xl dark:text-white"
             >
               {item}
-              <span className="inline-block h-3 w-3 rotate-45 bg-linear-to-br from-royal via-emerald-400 to-signal" />
+              <span className="inline-block h-3 w-3 rotate-45 bg-linear-to-br from-neutral-900 to-emerald-500 dark:from-white dark:to-emerald-400" />
             </span>
           ))}
         </div>

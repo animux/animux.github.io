@@ -33,7 +33,7 @@ function DotPattern({
   return (
     <svg
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-0 h-full w-full fill-zinc-500/30 dark:fill-emerald-200/15`}
+      className={`pointer-events-none absolute inset-0 h-full w-full fill-neutral-500/30 dark:fill-neutral-300/20`}
       {...props}
     >
       <defs>
@@ -59,49 +59,55 @@ const servicesData = [
     icon: faDisplay,
     title: "Web Application Development",
     text: "Crafting responsive and high-performance web applications using the latest technologies to meet your business needs.",
-    gradient: "from-emerald-500 to-royal",
-    glow: "hover:shadow-emerald-500/25",
-    topBar: "from-emerald-400 to-royal",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
   {
     icon: faCartShopping,
     title: "E-Commerce Solutions",
     text: "Building and optimizing online stores with secure payment gateways and intuitive user experiences.",
-    gradient: "from-signal to-emerald-600",
-    glow: "hover:shadow-signal/25",
-    topBar: "from-signal to-emerald-500",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
   {
     icon: faPencil,
     title: "UX/UI Design Collaboration",
     text: "Collaborating with UX/UI designers to create intuitive and engaging user experiences.",
-    gradient: "from-moss to-royal",
-    glow: "hover:shadow-moss/30",
-    topBar: "from-moss to-emerald-500",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
   {
     icon: faGear,
     title: "Maintenance and Support",
     text: "Providing ongoing maintenance and support to keep your applications running smoothly and securely.",
-    gradient: "from-emerald-600 to-ink",
-    glow: "hover:shadow-emerald-600/25",
-    topBar: "from-emerald-500 to-royal",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
   {
     icon: faArrowTrendUp,
     title: "Performance Optimization",
     text: "Enhancing the speed and efficiency of your web applications through various optimization techniques.",
-    gradient: "from-emerald-400 to-moss",
-    glow: "hover:shadow-emerald-400/25",
-    topBar: "from-emerald-400 to-moss",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
   {
     icon: faCloud,
     title: "Cloud Services",
     text: "Deploying and managing applications on cloud platforms e.g AWS and Google Cloud for enhanced scalability and reliability.",
-    gradient: "from-royal to-signal",
-    glow: "hover:shadow-signal/25",
-    topBar: "from-royal to-signal",
+    gradient:
+      "from-neutral-800 to-neutral-950 dark:from-neutral-700 dark:to-neutral-900 group-hover:from-emerald-500 group-hover:to-emerald-700",
+    glow: "hover:shadow-neutral-900/10 dark:hover:shadow-black/40",
+    topBar: "from-emerald-400 to-transparent",
   },
 ];
 
@@ -167,17 +173,17 @@ const myWork = [
 const Services = () => {
   return (
     <div
-      className="relative py-10 bg-white dark:bg-ink text-dark dark:text-white overflow-hidden"
+      className="relative py-10 bg-white dark:bg-neutral-950 text-dark dark:text-white overflow-hidden"
       id="services"
     >
       {/* Grid Pattern Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(24,24,27,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(24,24,27,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(23,23,23,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(23,23,23,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.075)_1px,transparent_1px)] [background-size:42px_42px]" />
 
       {/* Gradient Overlay - Top Left */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-500/15 via-royal/10 to-transparent rounded-full blur-3xl pointer-events-none dark:from-emerald-500/12 dark:via-royal/10" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none dark:from-emerald-500/5 dark:via-transparent" />
 
       {/* Gradient Overlay - Bottom Right */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-signal/20 via-moss/12 to-transparent rounded-full blur-3xl pointer-events-none dark:from-signal/10 dark:via-moss/8" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-neutral-400/10 via-transparent to-transparent rounded-full blur-3xl pointer-events-none dark:from-white/5 dark:via-transparent" />
 
       <div className="relative px-5 z-10">
         <div className="mb-10 px-2 sm:px-4 md:px-8">
@@ -240,7 +246,7 @@ const ServiceCard = ({ icon, title, text, gradient, glow, topBar }) => {
   return (
     <TiltCard
       max={9}
-      className={`isolate overflow-hidden basis-1/4 flex flex-col gap-4 md:gap-5 text-center p-6 md:p-8 items-center flex-grow flex-1 justify-center rounded-2xl min-h-[300px] md:h-[350px] border border-zinc-200/70 dark:border-white/10 bg-white/50 dark:bg-ink-800/50 shadow-xl hover:shadow-2xl backdrop-blur-2xl ${glow} transition-shadow ease-out duration-300 cursor-pointer group`}
+      className={`isolate overflow-hidden basis-1/4 flex flex-col gap-4 md:gap-5 text-center p-6 md:p-8 items-center flex-grow flex-1 justify-center rounded-2xl min-h-[300px] md:h-[350px] border border-neutral-200/70 dark:border-white/10 bg-white/50 dark:bg-neutral-900/50 shadow-xl hover:shadow-2xl backdrop-blur-2xl ${glow} transition-shadow ease-out duration-300 cursor-pointer group`}
     >
       <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] [background-size:34px_34px] opacity-15 pointer-events-none" />
       <div className="absolute left-6 right-6 top-[7.2rem] hidden h-px bg-white/8 dark:bg-white/8 md:block" />

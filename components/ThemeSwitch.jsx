@@ -29,7 +29,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "dark") {
     return (
       <div
-        className="bg-zinc-700 p-3 rounded cursor-pointer transition ease-in-out duration-300 hover:bg-zinc-950"
+        className="bg-neutral-700 p-3 rounded cursor-pointer transition ease-in-out duration-300 hover:bg-neutral-950"
         onClick={() => setTheme("light")}
       >
         <FiSun></FiSun>

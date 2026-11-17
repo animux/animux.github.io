@@ -76,7 +76,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-ink-deep/60 dark:via-ink-deep/30 dark:to-transparent  z-50 ${
+      className={`fixed w-full top-0 backdrop-filter backdrop-blur-xl bg-linear-to-b from-white/65 via-white/35 to-transparent dark:from-neutral-950/60 dark:via-neutral-950/30 dark:to-transparent  z-50 ${
         scrollY >= 100 ? "shadow-lg" : "shadow-none"
       }`}
     >
@@ -115,11 +115,11 @@ const Navbar = () => {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="relative py-2 text-gray-900 dark:text-white transition-colors duration-300 hover:text-zinc-600 dark:hover:text-zinc-400 group"
+                    className="relative py-2 text-gray-900 dark:text-white transition-colors duration-300 hover:text-neutral-600 dark:hover:text-neutral-400 group"
                     onClick={() => setOpen(false)}
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-zinc-600 to-zinc-700 dark:from-zinc-400 dark:to-zinc-300 group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-neutral-600 to-neutral-700 dark:from-neutral-400 dark:to-neutral-300 group-hover:w-full transition-all duration-300"></span>
                   </Link>
                 </li>
               ))}
@@ -134,7 +134,7 @@ const Navbar = () => {
               animate={isOpen ? "open" : "closed"}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-zinc-200/50 dark:hover:bg-zinc-700/50 transition-colors duration-300 z-40"
+              className="md:hidden p-2 rounded-lg hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 transition-colors duration-300 z-40"
               aria-label="Toggle menu"
             >
               <motion.svg
@@ -171,14 +171,14 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="md:hidden bg-white dark:bg-ink/95 backdrop-blur-md border-t border-zinc-200/30 dark:border-zinc-700/40"
+              className="md:hidden bg-white dark:bg-neutral-900/95 backdrop-blur-md border-t border-neutral-200/30 dark:border-neutral-700/40"
             >
               <ul className="font-medium flex flex-col gap-1 p-4 sm:p-6">
                 {navItems.map((item) => (
                   <motion.li key={item.href} variants={itemVariants}>
                     <Link
                       href={item.href}
-                      className="block py-3 px-4 text-gray-900 dark:text-white rounded-lg hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 transition-all duration-300 hover:translate-x-1"
+                      className="block py-3 px-4 text-gray-900 dark:text-white rounded-lg hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-all duration-300 hover:translate-x-1"
                       onClick={() => setOpen(false)}
                     >
                       {item.label}

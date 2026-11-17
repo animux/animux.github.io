@@ -14,18 +14,22 @@
 }
 
 :root {
-  --brand-gradient: linear-gradient(90deg, #0b6e3f, #10b981, #22c55e, #0b6e3f);
+  /* Neutral headline with a green sheen (About "Coffee") */
+  --brand-gradient: linear-gradient(90deg, #0a0a0a, #262626 40%, #10b981 55%, #262626 70%, #0a0a0a);
+  /* Hero name: full green accent */
+  --hero-gradient: linear-gradient(90deg, #0b6e3f, #10b981, #22c55e, #0b6e3f);
 }
 .dark {
-  --brand-gradient: linear-gradient(90deg, #10b981, #39e079, #a7f3c9, #10b981);
+  --brand-gradient: linear-gradient(90deg, #ffffff, #e5e5e5 40%, #6ee7b7 55%, #e5e5e5 70%, #ffffff);
+  --hero-gradient: linear-gradient(90deg, #10b981, #39e079, #a7f3c9, #10b981);
 }
 html.dark body {
-  background-color: var(--color-ink-deep);
+  background-color: #0a0a0a; /* near-black, not pure #000 */
 }
 
 ::selection {
   background-color: #6ee7b7;
-  color: #09090b;
+  color: #0a0a0a;
 }
 
 /* Gradient text shimmer animation */
